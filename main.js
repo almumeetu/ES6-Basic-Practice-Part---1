@@ -84,4 +84,40 @@ function animate_string(id) {
         text = text[text.length - 1] + text.substring(0, text.length - 1);
         textNode.data = text;
     }, 100);
+};
+
+
+// problem #6:
+// Write a JavaScript program to determine whether a given year is a leap year in the Gregorian calendar.
+function leapyear(year) {
+    return (year % 100 === 0) ? (year % 400 === 0) : (year % 4 === 0);
 }
+console.log(leapyear(2016));
+console.log(leapyear(2000));
+console.log(leapyear(1700));
+console.log(leapyear(1800));
+console.log(leapyear(100));
+
+
+// problem #7:
+// Write a JavaScript program to find 1st January is being a Sunday between 2014 and 2050.
+console.log('--------------------');
+for (var year = 2014; year <= 2050; year++) {
+    var d = new Date(year, 0, 1);
+    if (d.getDay() === 0)
+        console.log("1st January is being a Sunday  " + year);
+}
+console.log('--------------------');
+
+
+// problem #8:
+// Write a JavaScript program where the program takes a random integer between 1 to 10, the user is then prompted to input a guess number. If the user input matches with guess number, the program will display a message "Good Work" otherwise display a message "Not matched".
+// Get a random integer from 1 to 10 inclusive
+
+const num = Math.ceil(Math.random() * 10);
+console.log(num);
+const gnum = prompt('Guess the number between 1 and 10 inclusive');
+if (gnum == num)
+    console.log('Matched');
+else
+    console.log('Not matched, the number was ' + gnum);
