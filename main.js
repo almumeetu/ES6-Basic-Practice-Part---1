@@ -109,7 +109,6 @@ for (var year = 2014; year <= 2050; year++) {
 }
 console.log('--------------------');
 
-
 // problem #8:
 // Write a JavaScript program where the program takes a random integer between 1 to 10, the user is then prompted to input a guess number. If the user input matches with guess number, the program will display a message "Good Work" otherwise display a message "Not matched".
 // Get a random integer from 1 to 10 inclusive
@@ -121,3 +120,81 @@ if (gnum == num)
     console.log('Matched');
 else
     console.log('Not matched, the number was ' + gnum);
+
+
+// Problem #9:
+// Write a JavaScript program to calculate days left until next Christmas.
+
+today = new Date();
+var cmas = new Date(today.getFullYear(), 11, 25);
+if (today.getMonth() == 11 && today.getDate() > 25) {
+    cmas.setFullYear(cmas.getFullYear() + 1);
+}
+var one_day = 1000 * 60 * 60 * 24;
+console.log(Math.ceil((cmas.getTime() - today.getTime()) / (one_day)) +
+    " days left until Christmas!");
+
+
+// Problem #10:
+// Write a JavaScript program to calculate multiplication and division of two numbers (input from user).
+function multiplyBy() {
+    num1 = document.getElementById("firstNumber").value;
+    num2 = document.getElementById("secondNumber").value;
+    document.getElementById("result").innerHTML = num1 * num2;
+}
+function divideBy() {
+    num1 = document.getElementById("firstNumber").value;
+    num2 = document.getElementById("secondNumber").value;
+    document.getElementById("result").innerHTML = num1 / num2;
+}
+
+// problem #11:
+//  Write a JavaScript program to convert temperatures to and from Celsius, Fahrenheit. 
+function cToF(celsius) {
+    var cTemp = celsius;
+    var cToFahr = cTemp * 9 / 5 + 32;
+    var message = cTemp + '\xB0C is ' + cToFahr + ' \xB0F.';
+    console.log(message);
+}
+
+function fToC(fahrenheit) {
+    var fTemp = fahrenheit;
+    var fToCel = (fTemp - 32) * 5 / 9;
+    var message = fTemp + '\xB0F is ' + fToCel + '\xB0C.';
+    console.log(message);
+}
+cToF(60);
+fToC(45);
+
+
+
+// problem #12:
+//  Write a JavaScript program to get the website URL (loading page). 
+console.log(document.URL);
+
+// problem #13
+// Write a JavaScript exercise to create a variable using a user-defined name.\
+
+var var_name = 'saikat';
+var number = 120;
+this[var_name] = number;
+console.log(this[var_name])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
