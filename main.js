@@ -542,19 +542,237 @@ console.log(last_digit(20, -30, 400));
 console.log(last_digit(20, 30, -400));
 
 
+// problem #37:
+// Write a JavaScript program to produce a new string that has the first 3 characters in lower case from a given string. If the string length is less than 3 convert all the characters to upper case.
+
+function upper_lower(string) {
+    if (string.length < 3) {
+        return string.toUpperCase();
+    }
+    front_part = (string.substring(0, 3)).toLowerCase();
+    back_part = string.substring(3, string.length);
+    return front_part + back_part;
+}
+console.log(upper_lower("Python"));
+console.log(upper_lower("Py"));
+console.log(upper_lower("JAVAScript"));
+
+
+// problem #38:
+//   Write a JavaScript program to check a student's total marks in various examinations. The student will get A+ grade if the total marks are in the range 89..100 inclusive, if the examination is "Final-exam" the student will receive A+ grade and total marks must be greater than or equal to 90. If the student gets an A+ grade, return true, otherwise return false.
+
+function exam_status(totmarks, is_exam) {
+    if (is_exam) {
+        return totmarks >= 90;
+    }
+    return (totmarks >= 89 && totmarks <= 100);
+}
+
+console.log(exam_status("78", " "));
+console.log(exam_status("89", "true "));
+console.log(exam_status("99", "true "));
+
+
+// problem #39:
+// Write a JavaScript program to compute the sum of the two given integers. If the sum is in the range 50..80 return 65 otherwise return 80.
+
+function sortaSum(x, y) {
+    const sum_nums = x + y;
+    if (sum_nums >= 50 && sum_nums <= 80) {
+        return 65;
+    }
+    return 80;
+}
+
+console.log(sortaSum(30, 20));
+console.log(sortaSum(90, 80));
+
+// problem #40:
+// Write a JavaScript program to check from two given integers whether one of them is 8 or their sum or difference is 8.
+
+function check8(x, y) {
+    if (x == 8 || y == 8) {
+        return true;
+    }
+
+    if (x + y == 8 || Math.abs(x - y) == 8) {
+        return true;
+    }
+
+    return false;
+}
+
+console.log(check8(7, 8));
+console.log(check8(16, 8));
+console.log(check8(24, 32));
+console.log(check8(17, 18));
+
+
+// problem #41:
+// Write a JavaScript program to check a set of three numbers; if the three numbers are the same return 30; otherwise return 20; and if two numbers are the same return 40.
+
+function three_numbers(x, y, z) {
+    if (x == y && y == z) {
+        return 30;
+    }
+
+    if (x == y || y == z || z == x) {
+        return 40;
+    }
+
+    return 20;
+}
+console.log(three_numbers(8, 8, 8));
+console.log(three_numbers(8, 8, 18));
+console.log(three_numbers(8, 7, 18));
+
+
+// problem #42:
+// Write a JavaScript program to check whether three given numbers are increasing in strict or in soft mode.  Go to the editor
+// Note: Strict mode -> 10, 15, 31 : Soft mode -> 24, 22, 31 or 22, 22, 31
+
+function number_order(x, y, z) {
+    if (y > x && z > y) {
+        return "strict mode";
+    }
+    else if (z > y)
+        return "Soft mode";
+    else
+        return "Undefinded";
+}
+
+console.log(number_order(10, 15, 31));
+console.log(number_order(24, 22, 31));
+console.log(number_order(50, 21, 15));
+
+
+// problem #43:
+// Write a JavaScript program to check from three given numbers (non negative integers) that two or all of them have the same rightmost digit.
+
+function same_last_digit(p, q, r) {
+    return (p % 10 === q % 10) ||
+        (p % 10 === r % 10) ||
+        (q % 10 === r % 10);
+
+}
+
+console.log(same_last_digit(22, 32, 42));
+console.log(same_last_digit(102, 302, 2));
+console.log(same_last_digit(20, 22, 45));
 
 
 
+// problem #44:
+// Write a JavaScript program to check from three given integers whether a number is greater than or equal to 20. It is less than the others.
+function lessby20_others(x, y, z) {
+    return (x >= 20 && (x < y || x < z)) ||
+        (y >= 20 && (y < x || y < z)) ||
+        (z >= 20 && (z < y || z < x));
+}
+console.log(lessby20_others(23, 45, 10));
+console.log(lessby20_others(23, 23, 10));
+console.log(lessby20_others(21, 66, 75));
+
+// problem #45:
+// Write a JavaScript program that checks two integer values and returns true if either one is 15 or if their sum or difference is 15. 
+function test_number(x, y) {
+    return (x === 15 || y === 15 || x + y === 15 || Math.abs(x - y) === 15);
+}
+
+console.log(test_number(15, 9));
+console.log(test_number(25, 15));
+console.log(test_number(7, 8));
+console.log(test_number(25, 10));
+console.log(test_number(5, 9));
+console.log(test_number(7, 9));
+console.log(test_number(9, 25));
 
 
+// problem #46:
+// Write a JavaScript program to check two given non-negative integers if one (not both) is a multiple of 7 or 11.
+function valCheck(a, b) {
+    if (!((a % 7 == 0 || a % 11 == 0) && (b % 7 == 0 || b % 11 == 0))) {
+        return ((a % 7 == 0 || a % 11 == 0) || (b % 7 == 0 || b % 11 == 0));
+    }
+    else
+        return false;
+}
+console.log(valCheck(14, 21));
+console.log(valCheck(14, 20));
+console.log(valCheck(16, 20));
+
+// problem #47:
+// Write a JavaScript program to check whether a given number exists in the range 40..10000.  Go to the editor
+// For example 40 presents in 40 and 4000
+
+function test_digit(x, y, n) {
+    if (n < 40 || n > 10000)
+        return false;
+    else
+        if (n >= x && n <= y)
+            return true;
+        else
+            return false;
+}
+console.log(test_digit(40, 4000, 45));
+console.log(test_digit(80, 320, 79));
+console.log(test_digit(89, 4000, 30));
 
 
+// problem #48:
+// Write a JavaScript program to reverse a given string. 
+function string_reverse(str) {
+    return str.split("").reverse().join("");
+}
 
+console.log(string_reverse("w3resource"));
+console.log(string_reverse("www"));
+console.log(string_reverse("JavaScript"));
 
+// problem #49:
+//  Write a JavaScript program to replace every character in a given string with the character following it in the alphabet.
+function string_reverse(str)
+function LetterChanges(text) {
+    //https://goo.gl/R8gn7u
+    var s = text.split('');
+    for (var i = 0; i < s.length; i++) {
+        // Caesar cipher
+        switch (s[i]) {
+            case ' ':
+                break;
+            case 'z':
+                s[i] = 'a';
+                break;
+            case 'Z':
+                s[i] = 'A';
+                break;
+            default:
+                s[i] = String.fromCharCode(1 + s[i].charCodeAt(0));
+        }
 
+        // Upper-case vowels
+        switch (s[i]) {
+            case 'a': case 'e': case 'i': case 'o': case 'u':
+                s[i] = s[i].toUpperCase();
+        }
+    }
+    return s.join('');
+}
+console.log(LetterChanges("PYTHON"));
+console.log(LetterChanges("W3R"));
+console.log(LetterChanges("php"));
 
+// problem #50:
+// Write a JavaScript program to capitalize the first letter of each word in a given string.
+function capital_letter(str) {
+    str = str.split(" ");
 
+    for (var i = 0, x = str.length; i < x; i++) {
+        str[i] = str[i][0].toUpperCase() + str[i].substr(1);
+    }
 
+    return str.join(" ");
+}
 
-
+console.log(capital_letter("Write a JavaScript program to capitalize the first letter of each word of a given string."));
 
