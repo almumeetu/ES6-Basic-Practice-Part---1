@@ -776,3 +776,62 @@ function capital_letter(str) {
 
 console.log(capital_letter("Write a JavaScript program to capitalize the first letter of each word of a given string."));
 
+// problem #51:
+//  Write a JavaScript program to convert a given number into hours and minutes.
+function time_convert(num) {
+    var hours = Math.floor(num / 60);
+    var minutes = num % 60;
+    return hours + ":" + minutes;
+}
+
+console.log(time_convert(71));
+console.log(time_convert(450));
+console.log(time_convert(1441));
+
+// // problem #52:
+//  Write a JavaScript program to convert letters of a given string alphabetically. 
+function alphabet_Soup(str) {
+
+    return str.split("").sort().join("");
+
+}
+
+console.log(alphabet_Soup("Python"));
+
+console.log(alphabet_Soup("Exercises"));
+
+// // problem #53:
+// Write a JavaScript program to check whether the characters a and b are separated by exactly 3 places anywhere (at least once) in a given string.
+function ab_Check(str) {
+    return (/a...b/).test(str) || (/b...a/).test(str);
+}
+
+console.log(ab_Check("Chainsbreak"));
+console.log(ab_Check("pane borrowed"));
+console.log(ab_Check("abCheck"));
+
+// // problem #54:
+//  Write a JavaScript program to count the number of vowels in a given string.
+function vowel_Count(str) {
+
+    return str.replace(/[^aeiou]/g, "").length;
+}
+
+console.log(vowel_Count("Python"));
+console.log(vowel_Count("w3resource.com"));
+
+// // problem #55:
+// Write a JavaScript program to check whether a given string contains an equal number of p's and t's.
+function equal_pt(str) {
+    var str_p = str.replace(/[^p]/g, "");
+
+    var str_t = str.replace(/[^t]/g, "");
+
+    var p_num = str_p.length;
+    var s_num = str_t.length;
+
+    return p_num === s_num;
+
+}
+console.log(equal_pt("paatpss"));
+console.log(equal_pt("paatps"));
