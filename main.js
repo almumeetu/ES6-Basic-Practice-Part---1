@@ -309,15 +309,13 @@ console.log(first_last('ab'));
 console.log(first_last('abc'));
 
 
-// problem #24:
-// Write a JavaScript program to create another string from a given string with the first character of the given string added to the front and back. 
+// problem #24: string with the first character of the given string added to the front and back. 
 function front_back(str) {
-    first = str.substring(0, 1);
+    // Write a JavaScript program to create another string from a given
+    first = str.substring(2, 4);
     return first + str + first;
 }
-console.log(front_back('a'));
-console.log(front_back('ab'));
-console.log(front_back('abc'));
+console.log(front_back('saikat'));
 
 
 // problem #25:
@@ -447,7 +445,9 @@ console.log(max_of_three(1000, 510, 440));
 function near_100(x, y) {
     if (x != y) {
         x1 = Math.abs(x - 100);
+
         y1 = Math.abs(y - 100);
+
 
         if (x1 < y1) {
             return x;
@@ -699,7 +699,7 @@ function valCheck(a, b) {
 }
 console.log(valCheck(14, 21));
 console.log(valCheck(14, 20));
-console.log(valCheck(16, 20));
+console.log(valCheck(66, 20));
 
 // problem #47:
 // Write a JavaScript program to check whether a given number exists in the range 40..10000.  Go to the editor
@@ -731,10 +731,10 @@ console.log(string_reverse("JavaScript"));
 
 // problem #49:
 //  Write a JavaScript program to replace every character in a given string with the character following it in the alphabet.
-function string_reverse(str)
+
 function LetterChanges(text) {
     //https://goo.gl/R8gn7u
-    var s = text.split('');
+    var s = text.split('');   // ["p", "Y", "T", "H", "O", "N"]
     for (var i = 0; i < s.length; i++) {
         // Caesar cipher
         switch (s[i]) {
@@ -748,6 +748,7 @@ function LetterChanges(text) {
                 break;
             default:
                 s[i] = String.fromCharCode(1 + s[i].charCodeAt(0));
+
         }
 
         // Upper-case vowels
@@ -835,3 +836,140 @@ function equal_pt(str) {
 }
 console.log(equal_pt("paatpss"));
 console.log(equal_pt("paatps"));
+
+// 56. Write a JavaScript program to divide two positive numbers and return the result as string with properly formatted commas.
+
+function division_string(n1, n2) {
+
+    n1 = 80;
+    n2 = 6;
+
+    var div = Math.round(n1 / n2).toString(),
+        result_array = div.split("");
+
+    if (div >= 1000) {
+        for (var i = div.length - 3; i > 0; i -= 3) {
+            result_array.splice(i, 0, ",");
+        }
+        result_array;
+    }
+    console.log(result_array);
+
+}
+// 57. Write a JavaScript program to create one string of specified copies(positive numbers) of a given string.
+
+function string_copies(str, n) {
+    if (n < 0)
+        return false;
+    else
+        return str.repeat(n);
+}
+console.log(string_copies("abc", 5));
+console.log(string_copies("abc", 0));
+console.log(string_copies("abc", -2));
+
+
+// 58. Write a JavaScript program to create an updated string of 4 copies of the last 3 characters of a given original string.The string length must be 3 and above.
+
+function newstring(str) {
+    if (str.length >= 3) {
+        result_str = str.substring(str.length - 3);
+        return result_str + result_str + result_str + result_str;
+    }
+    else
+        return false;
+}
+console.log(newstring("Python 3.0"));
+console.log(newstring("JS"));
+console.log(newstring("JavaScript"));
+
+// 59. Write a JavaScript program to extract the first half of a even string.
+
+function first_half(str) {
+    if (str.length % 2 == 0) {
+        return str.slice(0, str.length / 2);
+    }
+    return str;
+}
+console.log(first_half("Python"));
+console.log(first_half("JavaScript"));
+console.log(first_half("PHP"));
+
+// 60. Write a JavaScript program to create a new string without the first and last characters of a given string.
+
+function without_first_end(str) {
+    return str.substring(1, str.length - 1);
+}
+console.log(without_first_end('JavaScript'));
+console.log(without_first_end('JS'));
+console.log(without_first_end('PHP'))
+
+// 61. Write a JavaScript program to concatenate two strings except for their first character.
+    function concatenate(str1, str2) {
+        str1 = str1.substring(1, str1.length);
+        str2 = str2.substring(1, str2.length);
+        return str1 + str2;
+    }
+
+console.log(concatenate("PHP", "JS")); // HPS
+console.log(concatenate("A", "B")); 
+console.log(concatenate("AA", "BB")); //AB
+
+// 62. Write a JavaScript program to copy the middle four characters to the start of a given string.The string length must be greater than or equal to three and should be even.
+
+function right_three(str) {
+    if (str.length >= 3 && str.length % 2 != 0) {
+        mid = (str.length - 1) / 2;
+        return str.slice(mid - 2, mid + 1 ) + str.slice(0, str.length);   
+    }
+    return str;
+}
+console.log(right_three("Pythono")); //ythoPython
+
+console.log(right_three("JavaScript"));      
+console.log(right_three("Hi")); 
+console.log(right_three("JavaScriptJavaScript"));  
+
+// 63. Write a JavaScript program to create a string using the middle three characters of a given string of odd length.The string length must be greater than or equal to three.
+
+function middle_three(str) {
+    if (str.length % 2 != 0) {
+
+        mid = (str.length + 1) / 2;
+        return str.slice(mid - 2, mid + 1);
+    }
+    return str;
+}
+console.log(middle_three('abcdefg'));  //cde
+console.log(middle_three('HTML5'));  // tml
+console.log(middle_three('Python')); // Python
+console.log(middle_three('PHP'));   // PHP
+console.log(middle_three('Exercises'));  //rci
+
+// 64. Write a JavaScript program to concatenate two strings and return the result.If the length of the strings does not match, then remove the characters from the longer string.
+
+function str_con_cat(str1, str2) {
+   
+    let str1L = str1.length;
+    let str2L = str2.length;
+
+    const m = Math.min(str1L, str2L); 
+
+    return str1.substring(str1L - m) + str2.substring(str2L - m);
+}
+
+console.log(str_con_cat("Python", "JS"));     // onJS
+console.log(str_con_cat("ab", "cdef"));        //  abef
+
+// 65. Write a JavaScript program to test whether a string ends with "Script".The string length must be greater than or equal to 6.
+function end_script(str) {
+    if (str.substring(str.length - 6, str.length) == 'Script') {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+console.log(end_script("JavaScript"));  //True 
+console.log(end_script("Java Script")); //True
+console.log(end_script("Java Scripts"));//False
