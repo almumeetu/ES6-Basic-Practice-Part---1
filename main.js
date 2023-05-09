@@ -905,14 +905,14 @@ console.log(without_first_end('JS'));
 console.log(without_first_end('PHP'))
 
 // 61. Write a JavaScript program to concatenate two strings except for their first character.
-    function concatenate(str1, str2) {
-        str1 = str1.substring(1, str1.length);
-        str2 = str2.substring(1, str2.length);
-        return str1 + str2;
-    }
+function concatenate(str1, str2) {
+    str1 = str1.substring(1, str1.length);
+    str2 = str2.substring(1, str2.length);
+    return str1 + str2;
+}
 
 console.log(concatenate("PHP", "JS")); // HPS
-console.log(concatenate("A", "B")); 
+console.log(concatenate("A", "B"));
 console.log(concatenate("AA", "BB")); //AB
 
 // 62. Write a JavaScript program to copy the middle four characters to the start of a given string.The string length must be greater than or equal to three and should be even.
@@ -920,15 +920,15 @@ console.log(concatenate("AA", "BB")); //AB
 function right_three(str) {
     if (str.length >= 3 && str.length % 2 != 0) {
         mid = (str.length - 1) / 2;
-        return str.slice(mid - 2, mid + 1 ) + str.slice(0, str.length);   
+        return str.slice(mid - 2, mid + 1) + str.slice(0, str.length);
     }
     return str;
 }
 console.log(right_three("Pythono")); //ythoPython
 
-console.log(right_three("JavaScript"));      
-console.log(right_three("Hi")); 
-console.log(right_three("JavaScriptJavaScript"));  
+console.log(right_three("JavaScript"));
+console.log(right_three("Hi"));
+console.log(right_three("JavaScriptJavaScript"));
 
 // 63. Write a JavaScript program to create a string using the middle three characters of a given string of odd length.The string length must be greater than or equal to three.
 
@@ -949,11 +949,11 @@ console.log(middle_three('Exercises'));  //rci
 // 64. Write a JavaScript program to concatenate two strings and return the result.If the length of the strings does not match, then remove the characters from the longer string.
 
 function str_con_cat(str1, str2) {
-   
+
     let str1L = str1.length;
     let str2L = str2.length;
 
-    const m = Math.min(str1L, str2L); 
+    const m = Math.min(str1L, str2L);
 
     return str1.substring(str1L - m) + str2.substring(str2L - m);
 }
@@ -973,3 +973,20 @@ function end_script(str) {
 console.log(end_script("JavaScript"));  //True 
 console.log(end_script("Java Script")); //True
 console.log(end_script("Java Scripts"));//False
+
+// 66. Write a JavaScript program to display the city name if the string begins with "Los" or "New" otherwise return blank.
+
+function city_name(str) {
+    if (str.length >= 3 && ((str.substring(0, 3) == 'Los')
+        || (str.substring(0, 3) == 'New'))) {
+        return str;
+    }
+
+    return '';
+}
+
+console.log(city_name("New York"));
+console.log(city_name("Los Angeles"));
+console.log(city_name("London"));
+
+
