@@ -989,4 +989,57 @@ console.log(city_name("New York"));
 console.log(city_name("Los Angeles"));
 console.log(city_name("London"));
 
+// 67. Write a JavaScript program to create a new string from a given string. This program removes the first and last characters of the string if the first or last character is 'P'. Return the original string if the condition is not satisfied.
 
+function nop(str) {  //PythonP
+    let start_position = 0;
+    let end_position = str.length; // 7
+
+
+    // 7 > 0 && 
+    if (str.length > 0 && str.charAt(0) == 'P') {
+        // console.log(str.charAt(0));
+
+        start_position = 1;
+    }
+
+    if (str.length > 1 && str.charAt(str.length - 1) == 'P') {
+        end_position--;
+    }
+
+    return str.substring(start_position, end_position);
+}
+
+console.log(nop("PythonP")); //ython
+console.log(nop("Python")); //ython
+console.log(nop("JavaScript")); //JavaScript
+
+// 68. Write a JavaScript program to create a new string using the first and last n characters from a given string. The string length must be larger than or equal to n.
+
+function two_string(str, n) {
+    first_part = str.substring(0, n);
+    last_part = str.substring(str.length - n);
+    return first_part + last_part;
+}
+
+console.log(two_string("JavaScript", 2));
+console.log(two_string("JavaScript", 3));
+
+// 69. Write a JavaScript program to compute the sum of three elements of a given array of integers of length 3. 
+
+function sum_three(nums) {
+    return nums[0] + nums[1] + nums[2];
+}
+
+console.log(sum_three([10, 32, 20]));
+console.log(sum_three([5, 7, 9]));
+console.log(sum_three([0, 8, -11]));
+
+// 70. Write a JavaScript program to rotate the elements left in a given array of integers of length 3. 
+
+function rotate_elements_left(array) {
+    return [array[1], array[2], array[0]];
+}
+console.log(rotate_elements_left([3, 4, 5]));
+console.log(rotate_elements_left([0, -1, 2]));
+console.log(rotate_elements_left([7, 6, 5])); 
