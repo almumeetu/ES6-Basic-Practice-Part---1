@@ -1112,6 +1112,38 @@ console.log(middle_elements([3, 3, 3], [2, 8, 0]));
 console.log(middle_elements([4, 2, 7], [2, 4, 5]));
 
 
+// 76. Write a JavaScript program to create an array by taking the first and last elements from a given array of integers. The length must be larger than or equal to 1. 
+
+function started(nums) {
+    var array1 = [];
+    array1.push(nums[0], nums[nums.length - 1]);
+
+    return array1;
+}
+console.log(started([20, 20, 30]));
+console.log(started([5, 2, 7, 8]));
+console.log(started([17, 12, 34, 78]));
+
+
+// 77. Write a JavaScript program to test whether an array of integers of length 2 contains 1 or 3. 
+
+function contains13(nums) {
+
+    if (nums.indexOf(1) != -1 || nums.indexOf(3) != -1) {
+        return true
+    }
+    else {
+        return false
+    }
+}
+
+console.log(contains13([1, 5]));
+console.log(contains13([2, 3]));
+console.log(contains13([7, 5]));
+
+
+
+
 
 
 
