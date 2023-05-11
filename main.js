@@ -1142,6 +1142,35 @@ console.log(contains13([2, 3]));
 console.log(contains13([7, 5]));
 
 
+// 78. Write a JavaScript program to test whether an array of integers of length 2 does not contain 1 or 3.
+function is13(nums) {
+    if (nums.indexOf(1) == -1 && nums.indexOf(3) == -1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+console.log(is13([7, 8]));
+console.log(is13([3, 2]));
+console.log(is13([0, 1]));
+
+
+// 79. Write a JavaScript program to test whether a given array of integers contains 30 and 40 twice. The array length should be 0, 1, or 2. 
+
+function twice3040(arra1) {
+    let a = arra1[0],
+        b = arra1[1];
+    return (a === 30 && b === 30) || (a === 40 && b === 40);
+}
+
+console.log(twice3040([30, 30]));
+console.log(twice3040([40, 40]));
+console.log(twice3040([20, 20]));
+console.log(twice3040([30]));
+
+
+
 
 
 
