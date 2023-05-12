@@ -1179,9 +1179,71 @@ console.log(swap([1, 2, 3, 4]));
 console.log(swap([0, 2, 1]));
 console.log(swap([3]));
 
+// destructing
+
+// 81. Write a JavaScript program to add two digits to a given positive integer of length two. 
+function add_two_digits(n) {
+    return n % 10 + Math.floor(n / 10);
+}
+console.log(add_two_digits(25))
+console.log(add_two_digits(50))
 
 
+// 82. Write a JavaScript program to add two positive integers without carrying. 
+
+function add_two_int_without_carrying(n1, n2) {
+    var result = 0,
+        x = 1;
+    while (n1 > 0 && n2 > 0) {
+        result += x * ((n1 + n2) % 10);
+        n1 = Math.floor(n1 / 10);
+        n2 = Math.floor(n2 / 10);
+        x *= 10;
+    }
+    return result;
+}
+console.log(add_two_int_without_carrying(222, 911))
+console.log(add_two_int_without_carrying(200, 900))
+
+// 83. Write a JavaScript program to find the longest string from a given array of strings.
+
+function longest_string(str_ara) {
+    var max = str_ara[0].length;
+    str_ara.map(v => max = Math.max(max, v.length));
+    result = str_ara.filter(v => v.length == max);
+    return result;
+}
+
+console.log(longest_string(['a', 'aa', 'aaa',
+    'aaaaa', 'aaaa']))
 
 
+// 84. Write a JavaScript program to replace each character in a given string with the next in the English alphabet.  Go to the editor
+// Note: 'a' will be replace by 'b' or 'z' would be replaced by 'a'.
+
+function alphabet_char_Shift(str) {
+    var all_chars = str.split("");
+    for (var i = 0; i < all_chars.length; i++) {
+        var n = all_chars[i].charCodeAt() - 'a'.charCodeAt();
+        n = (n + 1) % 26;
+        all_chars[i] = String.fromCharCode(n + 'a'.charCodeAt());
+    }
+    return all_chars.join("");
+}
+
+console.log(alphabet_char_Shift("abcdxyz"))
 
 
+// 85. Write a JavaScript program to divide a given array of positive integers into two parts. First element belongs to the first part, second element belongs to the second part, and third element belongs to the first part and so on. Now compute the sum of two parts and store it in an array of size two.
+
+function alternate_Sums(arr) {
+    var result = [0, 0];
+    for (var i = 0; i < arr.length; i++) {
+        if (i % 2) result[1] += arr[i];
+        else
+            result[0] += arr[i];
+    }
+    return result
+}
+
+console.log(alternate_Sums([1, 3, 6, 2, 5, 10]))
